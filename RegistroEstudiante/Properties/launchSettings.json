@@ -27,7 +27,7 @@
       "applicationUrl": "https://localhost:7166;http://localhost:5230",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DataSource": "Data Source=ROBERTMURI16\\SQLEXPRESS;Initial Catalog=RegistroEstudiantesDB;Integrated Security=True;Trust Server Certificate=True"
+        "DataSource": "***"
       }
     },
     "IIS Express": {

@@ -35,21 +35,28 @@ namespace Data.alunmnoRepository
         {
             var result = new Result<List<StudentIdentity>>();
 
-            List<StudentIdentity>? StudentList = [];
+            List<StudentIdentity>? studentList = [];
 
-            StudentList = await(from Student in _contexMain.Students
-                                 select new StudentIdentity
-                                 {
-                                     StudentId = Student.StudentId,
-                                     UserRolId = Student.UserRolId,
-                                     UserId = Student.UserId,
-                                     RoleId = Student.RoleId,
-                                     CareerId = Student.CareerId,
-                                     SubjectId = Student.SubjectId
+            studentList = await(from student in _contexMain.Students
+                                .Include(student => student.User)
+                                .Include(student => student.Role)
+                                .Include(student => student.Career)
+                                .Include(student => student.Subject)
+                                select new StudentIdentity
+                                {
+                                    StudentId = student.StudentId,
+                                    UserRolId = student.UserRolId,
+                                    UserId = student.UserId,
+                                    RoleId = student.RoleId,
+                                    CareerId = student.CareerId,
+                                    SubjectId = student.SubjectId,
+                                    UserName = student.User!.Username,
+                                    RoleName = student.Role!.Name,
+                                    CareerName = student.Career!.Name,
+                                    SubjectName = student.Subject!.Name
+                                }).ToListAsync();
 
-                                 }).ToListAsync();
-
-            result.Values = StudentList;
+            result.Values = studentList;
 
             return result;
         }

@@ -24,5 +24,15 @@ namespace Entities
 
         [Column("fk_materia_id")]
         public int SubjectId { get; set; }
+
+        // Propiedades adicionales
+        public User? User { get; set; }
+        public Role? Role { get; set; }
+        public Career? Career { get; set; }
+        public SubjectIdentity? Subject { get; set; }
+        public string? SubjectName { get; set; }
+        public string? UserName { get; set; }
+        public string? RoleName { get; set; }
+        public string? CareerName { get; set; }
     }
 }

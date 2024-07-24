@@ -143,6 +143,7 @@ namespace Business.Student
                 RoleId = student.RoleId,
                 CareerId = student.CareerId,
                 SubjectId = student.SubjectId
+
             };
         }
 
@@ -155,16 +156,25 @@ namespace Business.Student
                 UserId = students.UserId,
                 RoleId = students.RoleId,
                 CareerId = students.CareerId,
-                SubjectId = students.SubjectId
+                SubjectId = students.SubjectId,
+                SubjectName = students.SubjectName,
+                UserName = students.UserName,
+                RoleName = students.RoleName,
+                CareerName = students.CareerName
                 
             }).ToList();
         }
 
-        private static StudentIdentity MapToSaveUpdateStudent(StudentDto studentDto)
+        private static StudentIdentity MapToSaveUpdateStudent(StudentDto student)
         {
             return new StudentIdentity()
             {
-                
+                StudentId = student.StudentId,
+                UserRolId = student.UserRolId,
+                UserId = student.UserId,
+                RoleId = student.RoleId,
+                CareerId = student.CareerId,
+                SubjectId = student.SubjectId,
             };
         }
     }

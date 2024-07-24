@@ -7,7 +7,7 @@ namespace Entities
     public class StudentIdentity
     {
         [Key]
-        [Column("alunmno_id")]
+        [Column("alumno_id")]
         public int StudentId { get; set; }
 
         [Column("fk_usuario_rol_id")]

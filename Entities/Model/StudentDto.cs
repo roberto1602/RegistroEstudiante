@@ -10,5 +10,12 @@ namespace Entities.Model
         public int RoleId { get; set; }
         public int CareerId { get; set; }
         public int SubjectId { get; set; }
+
+        // Propiedades adicionales
+
+        public string? SubjectName { get; set; }
+        public string? UserName { get; set; }
+        public string? RoleName { get; set; }
+        public string? CareerName { get; set; }
     }
 }

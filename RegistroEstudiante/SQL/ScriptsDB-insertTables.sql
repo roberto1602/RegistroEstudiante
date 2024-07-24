@@ -134,3 +134,20 @@ GO
 --INSERT INTO materia (nombre, credito_materia, fk_carrera_id) 
 --VALUES ('Psicología Clínica', 3, (SELECT carrera_id FROM carrera WHERE nombre = 'Psicología'));
 
+
+
+--alumno
+--INSERT INTO alumno ([fk_usuario_rol_id]
+--           ,[fk_id_usuario]
+--           ,[fk_id_rol]
+--           ,[fk_carrera_id]
+--           ,[fk_materia_id])
+--SELECT ur.usuario_rol_id AS UsuarioRol, ur.fk_id_usuario AS IdUsuario, ur.fk_id_rol AS IdRol, c.carrera_id AS Carrera,  m.materia_id  AS Materia
+--FROM usuario_rol ur
+--INNER JOIN usuario_rol_carrera urc ON ur.usuario_rol_id = urc.fk_usuario_rol_id
+--INNER JOIN carrera c ON c.carrera_id = urc.fk_carrera_id
+--INNER JOIN carrera_materia cm ON cm.fk_carrera_id = c.carrera_id
+--INNER JOIN materia m ON m.materia_id = cm.fk_materia_id
+--INNER JOIN usuario u ON u.usuario_id = ur.fk_id_usuario
+--INNER JOIN rol r ON r.rol_id = ur.fk_id_rol
+--WHERE r.rol_id = 2;

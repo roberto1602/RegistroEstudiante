@@ -142,7 +142,11 @@ namespace Business.Student
                 UserId = student.UserId,
                 RoleId = student.RoleId,
                 CareerId = student.CareerId,
-                SubjectId = student.SubjectId
+                SubjectId = student.SubjectId,
+                SubjectName = student.SubjectName,
+                UserName = student.UserName,
+                RoleName = student.RoleName,
+                CareerName = student.CareerName
 
             };
         }
@@ -158,8 +162,8 @@ namespace Business.Student
                 CareerId = students.CareerId,
                 SubjectId = students.SubjectId,
                 SubjectName = students.SubjectName,
-                UserName = students.UserName,
                 RoleName = students.RoleName,
+                UserName = students.UserName,
                 CareerName = students.CareerName
                 
             }).ToList();
@@ -175,6 +179,10 @@ namespace Business.Student
                 RoleId = student.RoleId,
                 CareerId = student.CareerId,
                 SubjectId = student.SubjectId,
+                SubjectName = student.SubjectName,
+                UserName = student.UserName,
+                RoleName = student.RoleName,
+                CareerName = student.CareerName
             };
         }
     }

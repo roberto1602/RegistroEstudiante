@@ -13,9 +13,9 @@ namespace Entities.Model
 
         // Propiedades adicionales
 
-        public string? SubjectName { get; set; }
-        public string? UserName { get; set; }
         public string? RoleName { get; set; }
+        public string? UserName { get; set; }
         public string? CareerName { get; set; }
+        public string? SubjectName { get; set; }
     }
 }

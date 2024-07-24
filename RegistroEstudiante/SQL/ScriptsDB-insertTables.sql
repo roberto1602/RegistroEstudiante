@@ -137,12 +137,20 @@ GO
 
 
 --alumno
---INSERT INTO alumno ([fk_usuario_rol_id]
+
+--INSERT INTO [dbo].[alumno]
+--           ([fk_usuario_rol_id]
 --           ,[fk_id_usuario]
 --           ,[fk_id_rol]
 --           ,[fk_carrera_id]
---           ,[fk_materia_id])
---SELECT ur.usuario_rol_id AS UsuarioRol, ur.fk_id_usuario AS IdUsuario, ur.fk_id_rol AS IdRol, c.carrera_id AS Carrera,  m.materia_id  AS Materia
+--           ,[fk_materia_id]
+--           ,[rol]
+--           ,[usuario]
+--           ,[carrera]
+--           ,[materia])
+--SELECT ur.usuario_rol_id AS UsuarioRol, ur.fk_id_usuario AS IdUsuario, 
+--ur.fk_id_rol AS IdRol, c.carrera_id AS Carrera,  m.materia_id  AS Materia,
+--r.nombre AS Rol, u.nombre_usuario AS Usuario, c.nombre AS Carrera, m.nombre AS Materia
 --FROM usuario_rol ur
 --INNER JOIN usuario_rol_carrera urc ON ur.usuario_rol_id = urc.fk_usuario_rol_id
 --INNER JOIN carrera c ON c.carrera_id = urc.fk_carrera_id

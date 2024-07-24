@@ -35,28 +35,37 @@ namespace Data.alunmnoRepository
         {
             var result = new Result<List<StudentIdentity>>();
 
-            List<StudentIdentity>? studentList = [];
+            try
+            {
+                List<StudentIdentity>? studentList = [];
 
-            studentList = await(from student in _contexMain.Students
-                                .Include(student => student.User)
-                                .Include(student => student.Role)
-                                .Include(student => student.Career)
-                                .Include(student => student.Subject)
-                                select new StudentIdentity
-                                {
-                                    StudentId = student.StudentId,
-                                    UserRolId = student.UserRolId,
-                                    UserId = student.UserId,
-                                    RoleId = student.RoleId,
-                                    CareerId = student.CareerId,
-                                    SubjectId = student.SubjectId,
-                                    UserName = student.User!.Username,
-                                    RoleName = student.Role!.Name,
-                                    CareerName = student.Career!.Name,
-                                    SubjectName = student.Subject!.Name
-                                }).ToListAsync();
+                studentList = await (from student in _contexMain.Students
+                                    .Include(student => student.User)
+                                    .Include(student => student.Role)
+                                    .Include(student => student.Career)
+                                    .Include(student => student.Subject)
+                                     select new StudentIdentity
+                                     {
+                                         StudentId = student.StudentId,
+                                         UserRolId = student.UserRolId,
+                                         UserId = student.UserId,
+                                         RoleId = student.RoleId,
+                                         CareerId = student.CareerId,
+                                         SubjectId = student.SubjectId,
+                                         RoleName = student.Role!.Name,
+                                         UserName = student.User!.Username,
+                                         CareerName = student.Career!.Name,
+                                         SubjectName = student.Subject!.Name
+                                     }).ToListAsync();
 
-            result.Values = studentList;
+                result.Values = studentList;
+            }
+            catch (Exception ex)
+            {
+                result.Error = false;
+                result.Message = ex.Message;
+                ExceptionDispatchInfo.Capture(ex).Throw();
+            }
 
             return result;
         }

@@ -73,7 +73,6 @@ CREATE TABLE usuario_rol_carrera (
 
 CREATE TABLE alumno (
     [alumno_id] [int] IDENTITY(1,1) NOT NULL,
-	[fk_usuario_rol_id] [int] NOT NULL,
 	[fk_id_usuario] [int] NOT NULL,
 	[fk_id_rol] [int] NOT NULL,
 	[fk_carrera_id] [int] NOT NULL,
@@ -82,7 +81,6 @@ CREATE TABLE alumno (
 	[usuario] [nvarchar](100) NULL,
 	[carrera] [nvarchar](100) NULL,
 	[materia] [nvarchar](100) NULL,
-    CONSTRAINT FK_usuario_rol FOREIGN KEY (fk_usuario_rol_id) REFERENCES usuario_rol(usuario_rol_id),
     CONSTRAINT FK_usuario FOREIGN KEY (fk_id_usuario) REFERENCES usuario(usuario_id),
     CONSTRAINT FK_rol FOREIGN KEY (fk_id_rol) REFERENCES rol(rol_id),
     CONSTRAINT FK_carrera FOREIGN KEY (fk_carrera_id) REFERENCES carrera(carrera_id),

@@ -47,7 +47,6 @@ namespace Data.alunmnoRepository
                                      select new StudentIdentity
                                      {
                                          StudentId = student.StudentId,
-                                         UserRolId = student.UserRolId,
                                          UserId = student.UserId,
                                          RoleId = student.RoleId,
                                          CareerId = student.CareerId,
@@ -108,11 +107,14 @@ namespace Data.alunmnoRepository
                 var newStudent = new StudentIdentity
                 {
                     StudentId = student.StudentId,
-                    UserRolId = student.UserRolId,
                     UserId = student.UserId,
                     RoleId = student.RoleId,
                     CareerId = student.CareerId,
-                    SubjectId = student.SubjectId
+                    SubjectId = student.SubjectId,
+                    SubjectName = student.SubjectName,
+                    UserName = student.UserName,
+                    RoleName = student.RoleName,
+                    CareerName = student.CareerName
                 };
 
             

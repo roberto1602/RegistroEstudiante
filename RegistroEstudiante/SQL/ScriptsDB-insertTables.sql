@@ -18,6 +18,7 @@ GO
 --('1234567802', 'Pedro', 'Flores', 'pedro.flores', 'pedro.flores1@uni.com', '1234567802', 'Direccion 13', 'M', 'Activo', 'contrasena13', GETDATE(), 1),
 --('1234567803', 'Lucia', 'Diaz', 'lucia.diaz', 'lucia.diaz1@uni.com', '1234567803', 'Direccion 14', 'F', 'Activo', 'contrasena14', GETDATE(), 1),
 --('1234567804', 'Andres', 'Morales', 'andres.morales', 'andres.morales1@uni.com', '1234567804', 'Direccion 15', 'M', 'Activo', 'contrasena15', GETDATE(), 1),
+--('1234567806', 'Ricardo', 'Sanchez', 'ricardo.sanchez', 'ricardo.sanchez1@uni.com', '1234567806', 'Direccion 17', 'M', 'Activo', 'contrasena17', GETDATE(), 1)
 
 
 --INSERT INTO [dbo].[usuario_rol]
@@ -137,10 +138,8 @@ GO
 
 
 --alumno
-
 --INSERT INTO [dbo].[alumno]
---           ([fk_usuario_rol_id]
---           ,[fk_id_usuario]
+--           ([fk_id_usuario]
 --           ,[fk_id_rol]
 --           ,[fk_carrera_id]
 --           ,[fk_materia_id]
@@ -148,8 +147,7 @@ GO
 --           ,[usuario]
 --           ,[carrera]
 --           ,[materia])
---SELECT ur.usuario_rol_id AS UsuarioRol, ur.fk_id_usuario AS IdUsuario, 
---ur.fk_id_rol AS IdRol, c.carrera_id AS Carrera,  m.materia_id  AS Materia,
+--SELECT u.usuario_id AS IdUsuario, r.rol_id AS IdRol, c.carrera_id AS Carrera, m.materia_id  AS Materia,
 --r.nombre AS Rol, u.nombre_usuario AS Usuario, c.nombre AS Carrera, m.nombre AS Materia
 --FROM usuario_rol ur
 --INNER JOIN usuario_rol_carrera urc ON ur.usuario_rol_id = urc.fk_usuario_rol_id
@@ -158,4 +156,4 @@ GO
 --INNER JOIN materia m ON m.materia_id = cm.fk_materia_id
 --INNER JOIN usuario u ON u.usuario_id = ur.fk_id_usuario
 --INNER JOIN rol r ON r.rol_id = ur.fk_id_rol
---WHERE r.rol_id = 2;
+--WHERE r.rol_id = 2

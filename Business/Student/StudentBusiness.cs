@@ -74,15 +74,15 @@ namespace Business.Student
             {
                 var mapstudent = MapToSaveUpdateStudent(studentDto);
 
-                if (mapstudent.StudentId < 3)
-                {
+                //if (mapstudent.StudentId < 3)
+                //{
                     var student = await _studentData.SaveStudentAsync(mapstudent);
 
                     if (student.Values == null)
                         return Ok<StudentDto>(StatusCodes.Status400BadRequest.ToString(), null!);
 
                     result.Values = MapToStudent(student.Values!);
-                }
+                //}
 
                 result = Ok(StatusCodes.Status201Created.ToString(), result.Values);
             }
@@ -138,7 +138,6 @@ namespace Business.Student
             return new StudentDto()
             {
                 StudentId = student.StudentId,
-                UserRolId = student.UserRolId,
                 UserId = student.UserId,
                 RoleId = student.RoleId,
                 CareerId = student.CareerId,
@@ -156,7 +155,6 @@ namespace Business.Student
             return students.Select(students => new StudentDto
             {
                 StudentId = students.StudentId,
-                UserRolId = students.UserRolId,
                 UserId = students.UserId,
                 RoleId = students.RoleId,
                 CareerId = students.CareerId,
@@ -174,7 +172,6 @@ namespace Business.Student
             return new StudentIdentity()
             {
                 StudentId = student.StudentId,
-                UserRolId = student.UserRolId,
                 UserId = student.UserId,
                 RoleId = student.RoleId,
                 CareerId = student.CareerId,

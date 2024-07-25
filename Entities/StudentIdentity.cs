@@ -10,9 +10,6 @@ namespace Entities
         [Column("alumno_id")]
         public int StudentId { get; set; }
 
-        [Column("fk_usuario_rol_id")]
-        public int UserRolId { get; set; }
-
         [Column("fk_id_usuario")]
         public int UserId { get; set; }
 
